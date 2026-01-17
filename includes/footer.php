@@ -25,12 +25,12 @@
             </div>
 
             <nav class="space-y-2">
-                <a href="<?php echo APP_URL; ?>dashboard.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Dashboard</a>
-                <a href="<?php echo APP_URL; ?>jurnal.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Isi Jurnal</a>
-                <a href="<?php echo APP_URL; ?>rekapitulasi.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Rekapitulasi</a>
-                <a href="<?php echo APP_URL; ?>siswa.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Data Siswa</a>
+                <a href="<?php echo APP_URL; ?>index.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Dashboard</a>
+                <a href="<?php echo APP_URL; ?>isi-jurnal.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Isi Jurnal</a>
+                <a href="<?php echo APP_URL; ?>rekap.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Rekapitulasi</a>
+                <a href="<?php echo APP_URL; ?>data-siswa.php" class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800">Data Siswa</a>
                 <hr class="my-4 border-slate-700">
-                <a href="<?php echo APP_URL; ?>logout.php" class="block px-4 py-3 rounded-lg text-red-400 hover:bg-red-900/20">Logout</a>
+                <a href="javascript:void(0)" onclick="confirmLogout()" class="block px-4 py-3 rounded-lg text-red-400 hover:bg-red-900/20">Logout</a>
             </nav>
         </div>
     </div>
@@ -132,6 +132,27 @@
     // Close alert
     function closeAlert() {
         Swal.close();
+    }
+
+    // Confirm Logout
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Logout',
+            text: 'Apakah Anda yakin ingin keluar dari sistem?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#dc2626',
+            cancelButtonColor: '#64748b',
+            confirmButtonText: 'Ya, Logout',
+            cancelButtonText: 'Batal',
+            didOpen: (modal) => {
+                modal.style.borderRadius = '12px';
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '<?php echo APP_URL; ?>logout.php';
+            }
+        });
     }
 </script>
 

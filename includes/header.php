@@ -14,6 +14,13 @@ if (!defined('NAMA_SEKOLAH')) {
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 $user_name = isset($_SESSION['nama']) ? $_SESSION['nama'] : 'User';
 $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+
+// Fungsi untuk cek active menu
+function isActive($page)
+{
+    global $current_page;
+    return $current_page === $page ? true : false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -133,7 +140,7 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
             <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
 
                 <!-- Dashboard -->
-                <a href="<?php echo APP_URL; ?>dashboard.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo $current_page === 'dashboard' ? 'bg-cyber-600 text-white' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
+                <a href="<?php echo APP_URL; ?>index.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo isActive('index') ? 'bg-gradient-to-r from-cyber-600 to-cyber-700 text-white shadow-lg shadow-cyber-500/30' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-3m2-2l6.3-1.89c.26-.1.54-.1.8 0L17 5m-10 6l.89-2.6c.1-.3.37-.5.66-.5h.28c.29 0 .56.2.66.5L11 18m-5 0v2a1 1 0 001 1h12a1 1 0 001-1v-2"></path>
                     </svg>
@@ -141,7 +148,7 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
                 </a>
 
                 <!-- Isi Jurnal -->
-                <a href="<?php echo APP_URL; ?>jurnal.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo $current_page === 'jurnal' ? 'bg-cyber-600 text-white' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
+                <a href="<?php echo APP_URL; ?>isi-jurnal.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo isActive('isi-jurnal') ? 'bg-gradient-to-r from-cyber-600 to-cyber-700 text-white shadow-lg shadow-cyber-500/30' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747C22 10.998 17.5 6.253 12 6.253z"></path>
                     </svg>
@@ -149,7 +156,7 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
                 </a>
 
                 <!-- Rekapitulasi -->
-                <a href="<?php echo APP_URL; ?>rekapitulasi.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo $current_page === 'rekapitulasi' ? 'bg-cyber-600 text-white' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
+                <a href="<?php echo APP_URL; ?>rekap.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo isActive('rekap') ? 'bg-gradient-to-r from-cyber-600 to-cyber-700 text-white shadow-lg shadow-cyber-500/30' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
@@ -157,7 +164,7 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
                 </a>
 
                 <!-- Data Siswa -->
-                <a href="<?php echo APP_URL; ?>siswa.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo $current_page === 'siswa' ? 'bg-cyber-600 text-white' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
+                <a href="<?php echo APP_URL; ?>data-siswa.php" class="group flex items-center gap-3 px-4 py-3 rounded-lg <?php echo isActive('data-siswa') ? 'bg-gradient-to-r from-cyber-600 to-cyber-700 text-white shadow-lg shadow-cyber-500/30' : 'text-slate-300 hover:bg-slate-800'; ?> transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-2a6 6 0 0112 0v2zm0 0h6v-2a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
@@ -173,7 +180,10 @@ $user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
                     <p class="text-sm font-semibold text-white truncate"><?php echo escapeOutput($user_name); ?></p>
                     <p class="text-xs text-cyber-400 capitalize"><?php echo escapeOutput($user_role); ?></p>
                 </div>
-                <a href="<?php echo APP_URL; ?>logout.php" class="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-red-900/20 hover:bg-red-900/30 text-red-400 hover:text-red-300 border border-red-800/30 font-medium text-sm transition-all duration-200">
+                <a
+                    href="javascript:void(0)"
+                    onclick="confirmLogout()"
+                    class="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-red-900/20 hover:bg-red-900/30 text-red-400 hover:text-red-300 border border-red-800/30 font-medium text-sm transition-all duration-200">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                     </svg>

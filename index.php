@@ -146,7 +146,7 @@ require_once 'includes/header.php';
         <!-- Header -->
         <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
             <h2 class="text-lg font-bold text-white">Jurnal Terbaru</h2>
-            <a href="<?php echo APP_URL; ?>isi-jurnal.php" class="text-cyber-400 hover:text-cyber-300 text-sm font-medium">
+            <a href="<?php echo APP_URL; ?>rekap.php" class="text-cyber-400 hover:text-cyber-300 text-sm font-medium">
                 Lihat Semua →
             </a>
         </div>
