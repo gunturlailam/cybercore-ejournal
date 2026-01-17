@@ -1,0 +1,7 @@
+[2026-01-17 19:19:56] User ID: GUEST | IP: 127.0.0.1 | Action: LOGIN_FAILED | Details: Invalid password for user: admin
+[2026-01-17 19:20:06] User ID: GUEST | IP: 127.0.0.1 | Action: LOGIN_FAILED | Details: Invalid password for user: admin
+[2026-01-17 19:22:17] User ID: GUEST | IP: 127.0.0.1 | Action: LOGIN_FAILED | Details: Invalid password for user: admin
+[2026-01-17 19:27:11] User ID: 1 | IP: 127.0.0.1 | Action: LOGOUT | Details: User logged out
+[2026-01-17 19:27:25] User ID: GUEST | IP: 127.0.0.1 | Action: LOGIN_FAILED | Details: Invalid password for user: budi_guru
+[2026-01-17 19:27:39] User ID: GUEST | IP: 127.0.0.1 | Action: LOGIN_FAILED | Details: Invalid password for user: budi_guru
+[2026-01-17 19:27:49] User ID: GUEST | IP: 127.0.0.1 | Action: LOGIN_FAILED | Details: Invalid password for user: admin
